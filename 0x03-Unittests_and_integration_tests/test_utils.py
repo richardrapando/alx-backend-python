@@ -14,7 +14,7 @@ from utils import (
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """ Class for Testing Access Nested Map """
+    """Testing `access_nested_map` function."""
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
@@ -26,7 +26,7 @@ class TestAccessNestedMap(unittest.TestCase):
             path: Tuple[str],
             expected: Union[Dict, int],
             ) -> None:
-        """ Test that the method returns what it is supposed to """
+        """Testing `access_nested_map`'s output."""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
@@ -45,7 +45,7 @@ class TestAccessNestedMap(unittest.TestCase):
 
 
 class TestGetJson(unittest.TestCase):
-    """ Class for Testing Get Json """
+    """Testing `get_json` function."""
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
@@ -55,7 +55,7 @@ class TestGetJson(unittest.TestCase):
             test_url: str,
             test_payload: Dict,
             ) -> NonTests the `get_json` functione:
-        """ Test that utils.get_json returns the expected result """
+        """Testing `get_json`'s output."""
         attrs = {'json.return_value': test_payload}
         with patch("requests.get", return_value=Mock(**attrs)) as req_get:
             self.assertEqual(get_json(test_url), test_payload)
@@ -63,7 +63,7 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """ Class for Testing Memoize """
+    """Testing `memoize` function."""
     def test_memoize(self) -> None:
         """Testing `memoize`'s output."""
         class TestClass:
